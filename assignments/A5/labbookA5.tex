@@ -1,0 +1,167 @@
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX)
+\documentclass{../labbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{YOUR NAME HERE}
+\rhead{Speech Sounds} 
+\chead{\textbf{Lab Book A5. Due: 20.10.2023 23:59 CEST}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{mdframed}[backgroundcolor=blue!20]
+\LaTeX ~submissions are mandatory. Submitting your assignment in another format will be graded no higher than R.
+\end{mdframed}
+
+%\tableofcontents %Automatic table of contents
+
+\section{Lab Book A5}
+In this Lab Book assignment you will investigate the interaction of fundamental frequency and
+lexical tone in Mandarin Chinese \footnote{The assignment is inspired by and based on the assignments and materials provided by Dr. Rebecca Scarborough in her Stanford course on phonetics from 2005. 
+The data come from the dissertation of Jiahong Yuan, Yuan, J. (2004). Intonation in Mandarin Chinese: Acoustics, perception, and computational modeling. New York: Cornell University, p.416}
+
+In Chinese $f_0$ has at least two linguistic functions: to mark lexical tone, where different pitch patterns distinguish different words, and intonation, when phrases that semantically differ might be distinguished based on pitch. 
+But what happens when different pitch requirements of tone and intonation happen to be on a single word?
+To investigate this you have 24 sentences in Mandarin Chinese: 4 minimal question / statement sentence pairs produced by 3 speakers. The last word of each sentence has either a high rising tone (tone 2) or a high falling tone (tone 4).
+
+
+\subsection{Submission}
+For this submission you will need to commit the LaTeX file as usual, as well as plots of $f_0$. Therefore, the completed commit for this assignment includes:
+\begin{enumerate}
+    \item LaTeX file that includes the plots, your hypotheses (e.g., about what you can see on the plots),  statistical results regarding the question, and a very brief discussion of your conclusions.
+    \item Your code (you commit your code file alongside your LaTeX file).
+    \item Plots.
+\end{enumerate}
+
+\begin{problem}{1}{10}{Intonation and tone}
+
+\subsubsection*{Preparation:}
+
+In the dataset (\href{https://drive.google.com/drive/folders/13bNOlbBJdNuvnBxX_OeiHOhqL3jiobXc?usp=sharing}{that can be found here}) the file names are formed as a combination of sentence type (\texttt{st} for statement, \texttt{q} for question), tone, word, speaker. E.g., “\texttt{st\_4\_lu\_S3}” means it is a statement with the fourth-tone word \textit{lu} (``deer'') on the last syllable, produced by Speaker 3. Detailed descriptions are in the tables below.
+
+For the analysis part you should focus your attention on the last word of the sentence. For simplicity you can assume that the last 15\% of each recording correspond to the last word.
+
+
+\subsubsection*{Task:}
+\begin{itemize}
+    \item To address the problem you need to track $f_0$ (you can use the Praat script that is committed alongside this Lab Book - I checked it in Windows, works fine with standard Windows paths - or you can try using Robust Algorithm for Pitch Tracking, RAPT, from \href{https://pysptk.readthedocs.io/en/latest/generated/pysptk.sptk.rapt.html}{pysptk}\footnote{If you are going to use RAPT, set hopsize for 80, min $f_0$ for 75, max $f_0$ for 600}). You will have to plot the $f_0$ contours of the sentences and perform simple statistical analysis to answer the following question:
+    \textbf{How intonation influences tone realisation in Mandarin Chinese?} 
+    
+    \item To answer this question, first separately plot $f_0$ for questions and statements with different final tones: tones 2 and 4. \footnote{It is a good idea to normalize $f_0$ by dividing each $f_0$ measurement in each recording by mean $f_0$ of the same recording. This would allow us to ignore the $f_0$ difference between speakers and get nicely aligned pictures. To have the graphs match even better, try dividing the time by the length of the record, so every graph has a ``normalised time'' from 0 to 1.}
+
+    \item  Examine the plots and think of diverse ways of assessing $f_0$ behaviour, such as range, mean, minimum, maximum. Think of hypothesis/hypotheses about $f_0$.
+    
+    \item  Comparing $f_0$ measurements of questions and statements using a simple ANOVAs or alternatives (e.g., in this task a Kruskal-Wallis test for non-parametric data seems to be a good choice) would be enough for this assignment.\footnote{There are multiple sources you can look into for these tests, a famous and fun book about statistics is by Andy Field, Jeremy Miles and Zoe Field, and you can check it out \href{https://drive.google.com/file/d/1XCNZ9MQ4ZoRNRdMVutQVrtPpWmYfCUJ_/view?usp=sharing}{here}.}
+    
+    \item Briefly describe the results. Mention any limitations or difficulties you faced during the assignment.
+
+\end{itemize}
+
+You may do this task in whatever programming language you prefer: R, Python, or anything else. If you are struggling with plotting, you may use Praat to draw contours.
+
+If you are using Python, you may consider using \texttt{numpy} or \texttt{pandas} for convenient operations with data sets,  \texttt{scipy.stats} for statistical algorithms and \texttt{matplotlib} for making plots. At the end of the document you can find some Python code snippets to help you if you have chosen Python as a tool for analysis.
+
+\end{problem}
+
+\newcommand{\twolinetext}[2]{
+    \vtop{
+        \hbox{\strut #1}
+        \hbox{\strut (``#2'')}
+    }
+}
+
+\begin{table}[htpb!]
+\caption{\textbf{Statements}}
+\begin{tabular}{|l|l|l|}
+\hline
+File name & Sentence & Literal translation 
+\\\hline\hline
+    st\_2\_niu    & 
+    Luo2yan4 li3bai4wu3 mai4 ye3niu2    &   
+    \twolinetext{Luoyan Friday sells wild cows.}{Luoyan sells wild cows on Friday.} \\
+\hline
+    st\_2\_yang   & 
+    Li3bai4wu3 Luo2yan4 yao4 mai3 yang2   & 
+    \twolinetext{Friday Luoyan will buy sheep.}{On Friday, Luoyan will buy sheep.} \\
+\hline
+    st\_4\_lu     & 
+    Luo2yan4 li3bai4wu3 mai4 ye3lu4           &   
+    \twolinetext{Luoyan Friday sells wild deer.}{Luoyan sells wild deer on Friday.} \\
+\hline
+    st\_4\_la     & 
+    Li3bai4wu3 Luo2yan4 yao4 mai3 la4    & 
+    \twolinetext{Friday Luoyan will buy candles.}{On Friday, Luoyan will buy candles.} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htpb!]
+\caption{\textbf{Echo questions}}
+\begin{tabular}{|l|l|l|}
+\hline
+File name & Sentence & Literal translation 
+\\\hline\hline
+    q\_2\_niu &
+    Luo2yan4 li3bai4wu3 mai4 ye3niu2 &
+    \twolinetext{Luoyan Friday sells wild cows.}{Luoyan sells wild cows on Friday?} \\
+\hline
+    q\_2\_yang &
+    Li3bai4wu3 Luo2yan4 yao4 mai3 yang2 &
+    \twolinetext{Friday Luoyan will  buy sheep.}{On Friday, Luoyan will buy sheep?} \\
+\hline
+    q\_4\_lu &
+    Luo2yan4 li3bai4wu3 mai4 ye3lu4 &
+    \twolinetext{Luoyan Friday sells wild deer.}{Luoyan sells wild deer on Friday?} \\
+\hline
+    q\_4\_la &
+    Li3bai4wu3 Luo2yan4 yao4 mai3 la4 &
+    \twolinetext{Friday Luoyan will buy candles.}{On Friday, Luoyan will buy candles?} \\
+\hline
+\end{tabular}
+\end{table}
+
+    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{solution}
+
+\subsection{Visualization}
+
+REPLACE THIS TEXT WITH YOUR ANSWER.
+
+\subsection{Hypothesis (e.g., based on the plots)}
+
+REPLACE THIS TEXT WITH YOUR ANSWER.
+
+\subsection{Satistical analysis}
+
+REPLACE THIS TEXT WITH YOUR ANSWER.
+
+\subsection{Brief discussion and conclusion}
+
+REPLACE THIS TEXT WITH YOUR ANSWER.
+
+
+
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\subsection*{Python tips (for a simplistic solution)}
+\begin{enumerate}
+    \item Function to read results of pitch tracking from Praat, where ``np'' is imported \texttt{numpy} (\texttt{import numpy as np}): \href{https://gist.github.com/vassverk/b005b5638563b53797624e511a25fb7a}{can be found here}.
+    \item Function to measure end tones,  \href{https://gist.github.com/vassverk/b53ae5827b6f4ae9fe41d353a74a9aae}{can be found here}.
+    \item Plotting tones together and measuring end tones \href{https://gist.github.com/vassverk/68afaa710d6233695feda2a67612416a}{can be found here}, where:
+\begin{itemize}
+    \item ``pd'' is imported \texttt{pandas} (\texttt{import pandas as pd}),
+    \item ``plt'' (\texttt{from matplotlib import pyplot as plt}),
+    \item \texttt{data\_dir = Path('data')},
+    \item ``end\_of\_sentence\_fraction'' is a parameter defining which ``end portion'' of the sentence you analyse (it is for you to define).
+\end{itemize}
+\end{enumerate}
+
+ 
+\end{document}

@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX)
+\documentclass{../labbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Cantao Su}
+\rhead{Speech Sounds} 
+\chead{\textbf{Lab Book A3. Due: 27.09.2023 23:59 CEST}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{mdframed}[backgroundcolor=blue!20]
+\LaTeX ~submissions are mandatory. Submitting your assignment in another format will be graded no higher than R. Convenient table for the TIPA package used to processing IPA symbols can be found \href{https://jon.dehdari.org/tutorials/tipachart_mod.pdf}{here}. Detailed TIPA manual can be found \href{http://www.l.u-tokyo.ac.jp/~fkr/tipa/tipaman.pdf}{here}.
+\end{mdframed}
+
+\tableofcontents %Automatic table of contents
+
+\section{Lab Book A3.}
+In the Lab Book A3 we are focusing on spectral features of our speech signals. To examine these we are going to use \href{https://www.fon.hum.uva.nl/praat/}{Praat}. 
+
+\subsection{Submission}
+For this submission you will need to commit LaTeX file as usual and together with your commit link upload the following 2 files to the  Brighspace assignment: one multi-channel .wav file and the corresponding .TextGrid file you made in the Assignment 1 (see below).
+
+
+\begin{problem}{1}
+\textbf{[10pts]} \textit{English}: 
+
+\subsubsection*{Preparation:}
+
+Take one of the recording of English version of "North Wind and the Sun" reading from \href{https://drive.google.com/drive/folders/16kZBQhEbdeE40Rv_GGGD-JhZfa5eA1fu?usp=sharing}{the folder}. Splice out ("segment")\footnote{Extract both the selected sound and TextGrid by using "time from 0" in the menu.} the first sentence of the "North Wind and the Sun" - \textit{"The North Wind and the Sun were disputing which was the stronger, when a traveler came along wrapped in a warm cloak."} - and annotate it in into words. 
+
+Next, filter the sound object of your first sentence with a low pass filter at 10 kHz. You will be working with this sound in this task.
+
+\subsubsection*{Task:}
+\begin{itemize}
+    \item Split the prepared sound object into 8 equal channels using Hann filter and name the resulted sound objects accordingly (e.g, starting from the lowest frequency band - from 0 Hz to 1250 Hz will be named "ch1", from 1250 Hz to 2500 Hz - "ch2", etc.).
+    \item Listen to each channel and examine spectrograms and waveforms of each channel individually\footnote{If your spectrogram only shows frequencies up to 5kHz (the default value), adjust the spectrogram settings in the menu "Spectrum" $=>$ "Settings"}.
+    \item Examine each channel by opening ("View \& Edit") it with the corresponding TextGrid file. In your answer name the sounds and the corresponding words that are visible and/or audibly recognizable in the channels 1, 2, 3, 4, 6, 8 (separate list for every channel), and reflect on what you see and hear: share your insights about different types of sounds that you see/hear on each channel.
+    \item Combine all 8 channels into a multi-channel recording (select all channels and use "Combine" $=>$ "to stereo") and examine the resulted sound again. Rename the sound as "yourfirstname-wind-s1-selectedaccent.wav" (replace "yourfirstname" with your first name and "selectedaccent" with accent you selected from a folder: e.g., "vass-wind-s1-nz.wav") and save it. Also save the extracted TextGrid to accompany it (good practice is to name TextGrid the same as the original sound file, e.g. "vass-wind-s1-nz.TextGrid" .
+\end{itemize}
+
+\end{problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{solution}
+
+In the channel 1: \textbf{Most vowels are audibly recognizable while some plosives and fricatives with higher fundamental frequency are not.}
+\begin{itemize}
+    \item close front unrounded vowel: disputing
+    \item close back rounded vowel: disputing
+    \item near-close near-front unrounded vowel: wind, disputing, came, which
+    \item near-close near-back rounded vowel: cloak
+    \item close-mid front unrounded vowel: when, came
+    \item close-mid back rounded vowel: stronger, along
+    \item mid central vowel: were, was, along, cloak, stronger, traveller
+    \item open-mid back unrounded vowel: sun
+    \item near-open front unrounded vowel: traveller
+    \item open front unrounded vowel: wrapped 
+    \item open mid-back rounded vowel: north, warm
+    \item voiced bilabial nasal: came, warm
+    \item voiced labiodental fricative: traveller
+    \item voiced dental nasal consonant: north, wind, sun, when
+    \item voiced dental plosive: wind
+    \item voiced dental approximant: stronger, traveller, wrapped
+    \item voiced dental lateral approximant: traveller, along
+    \item voiced labiodental approximant: wind, were, warm
+    \item voiced palatal approximant: disputing
+    \item voiced velar nasal: disputing, stronger, along
+    \item voiced velar plosive: stronger
+    \item voiceless bilabial plosive: wrapped
+    \item voiceless dental plosive: stronger, traveller
+    \item voiceless velar plosive: cloak
+\end{itemize} 
+
+In the channel 2: \textbf{Some fricatives audibly unrecognizable in ch1 are recognizable in ch2; the speech is much more audibly recognizable than ch1 even though the loundness is lower.}
+\begin{itemize}
+    \item close front unrounded vowel: disputing
+    \item close back rounded vowel: disputing
+    \item near-close near-front unrounded vowel: wind, disputing, came, which
+    \item near-close near-back rounded vowel: cloak
+    \item close-mid front unrounded vowel: when, came
+    \item close-mid back rounded vowel: stronger, along
+    \item mid central vowel: the, were, was, along, cloak, stronger, traveller
+    \item open-mid back unrounded vowel: sun
+    \item near-open front unrounded vowel: traveller
+    \item open front unrounded vowel: wrapped 
+    \item open mid-back rounded vowel: north
+    \item voiced bilabial plosive: disputing
+    \item voiced bilabial nasal: came
+    \item voiced labiodental fricative: traveller
+    \item voiced labiodental approximant: wind, were, which, when
+    \item voiced dental nasal consonant: north, wind, sun, when
+    \item voiced dental plosive: wind
+    \item voiced dental approximant: stronger, traveller, wrapped
+    \item voiced dental lateral approximant: traveller, along
+    \item voiced palatal approximant: disputing
+    \item voiced velar nasal: disputing, stronger, along
+    \item voiced velar plosive: stronger
+    \item voiceless dental plosive: stronger, traveller, wrapped 
+    \item voiceless dental fricative: the, north
+    \item voiceless alveolar fricative: sun, disputing, was, stronger
+    \item voiceless velar plosive: cloak       
+    \item voiceless affricate: which
+\end{itemize}
+
+In the channel 3: \textbf{Vowels are becoming less audibly recognizable while some fricatives and plosives are becoming clearly recognizable}
+\begin{itemize}
+    \item close front unrounded vowel: disputing
+    \item close back rounded vowel: disputing
+    \item close-mid front unrounded vowel: when, came
+    \item close-mid back rounded vowel: stronger, along
+    \item near-close near-front unrounded vowel: wind, disputing, came, which
+    \item mid central vowel: the, was, along, stronger, were
+    \item near-open front unrounded vowel: wrapped 
+    \item open mid-back rounded vowel: north
+    \item voiced bilabial plosive: disputing
+    \item voiced bilabial nasal: came
+    \item voiced labiodental fricative: traveller
+    \item voiced labiodental approximant: wind, which
+    \item voiced dental nasal consonant: north, wind, sun, when
+    \item voiced dental plosive: wind,
+    \item voiced dental approximant: stronger, traveller, wrapped
+    \item voiced dental lateral approximant: traveller, along
+    \item voiced palatal approximant: disputing
+    \item voiced velar nasal: disputing, stronger, along
+    \item voiced velar plosive: stronger
+    \item voiceless dental fricative: north
+    \item voiceless dental plosive: stronger, traveller, wrapped 
+    \item voiceless alveolar fricative: sun, disputing, was, stronger
+    \item voiceless velar plosive: cloak
+    \item voiceless affricate: which
+\end{itemize}
+
+In the channel 4: \textbf{Vowels are not audibly recognizable while some plosives and fricatives still are}
+\begin{itemize}
+    \item voiceless dental fricative consonant: north
+    \item voiceless dental plosive: wind, disputing, wrapped 
+    \item voiceless dental plosive: stronger, traveller
+    \item voiced dental approximant: stronger, traveller
+    \item voiceless alveolar fricative: sun, disputing, stronger
+    \item voiceless velar plosive: came, cloak    
+    \item voiceless affricate: which
+\end{itemize}
+
+In the channel 6: \textbf{Only some fricatives are audibly recognizable}
+\begin{itemize}
+    \item voiced dental approximant: stronger, traveller
+    \item voiceless dental plosive: stronger, traveller
+    \item voiceless alveolar fricative: sun, disputing, stronger 
+    \item voiceless affricate: which
+\end{itemize}
+
+In the channel 8: \textbf{I would say that some sounds I can hear here is quite subjective}
+\begin{itemize}
+    \item voiceless alveolar fricative: sun, disputing, stronger 
+\end{itemize}
+
+\end{solution}
+
+\end{document}
+
+
